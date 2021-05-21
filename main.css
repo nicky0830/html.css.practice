@@ -1,0 +1,61 @@
+body{ 
+    /* body 초기화 */
+    /* 여기서 width, height도 설정되어 있다 
+div이므로 width는 100%(페이지 전체), 세로는 들어있는 요소들의 합만큼으로 auto설정 */
+    margin: 0; 
+    padding: 0; 
+}
+.header{ 
+    /* header는 감싸는 요소이므로 안의 요소가 커지면 같이 커진다(height: auto) */
+    border-bottom: 1px solid lightgray;
+    /* border: 실선 */
+}
+
+.container{ 
+    /* 전체를 화면 정중앙으로 모아주는 역할  */
+    /* header전체를 쓰고 있으니까 width, 위치 설정 */
+    margin: auto;
+    width: 980px;
+}
+
+.container-left{ 
+    padding: 20px 0;
+    /* padding은 container에 넣어도 되지만 최상위보다 가장 안에 있는 요소에 쓰는 것이 좋음 */
+}
+
+.logo{ 
+    float: left; 
+    margin-right: 5px;
+    /* 로고와 메뉴 전체를 수평으로 만들기 위해 메뉴 전체와 로고를 float를 쓴다 */
+}
+
+.logo img {  
+    /* img 태그는 logo, menu 사이에 있으니까 css도 같은 곳에 두어야 유지보수하기 좋음 */
+    /*선택자 space 자식요소: 별명을 주지 않고도 구할 수 있음*/
+    display: block;
+    /* 이렇게 하면 img가 아래 붙지 않는다. 왜인지는 block배우면서 배워보기 */
+    
+}
+
+.menu{ 
+    float:left; 
+}
+
+.menu-item{ 
+    float: left;    
+    /* div는 항상 위에서 아래로 수직으로 쌓인다 그러므로 수평으로 쌓는 방법은?*/
+    /* float(요소를 띄우는 역할)을 사용함으로써 수평으로 만든다 */
+    /* 이 부모에 아래 clearfix(해지를 하는 역할(?))를 적용한다 */
+    padding: 8px 10px;
+    /* 부모 안에 자식요소를 margin으로 수평 중앙 정렬할 때는 auto, 수직 중앙 정렬은 부모 요소의 내부 여백을 위아래 설정해서 가운데로 */
+    /* 개발자도구로 test(체크박스), 그대로 c,v해서 가져와서 쓸 수 있음 */
+    /* 단축속성 : 8(위,아래,왼,오) 8 10(위,아래/ 왼,오) */
+    
+}
+
+.clearfix::after{ 
+    /* 가상요소 선택자:: */
+    content: ""; 
+    display: block; 
+    clear: both;
+}
